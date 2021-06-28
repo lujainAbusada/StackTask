@@ -2,7 +2,7 @@
 
 namespace Stack
 {
-    class Program
+    class StackProgram
     {
         static void Main(string[] args)
         {
