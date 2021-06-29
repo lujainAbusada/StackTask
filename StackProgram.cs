@@ -14,14 +14,13 @@ namespace Stack
     {
         static void Main(string[] args)
         {
-            ArrayStack<int> s = new ArrayStack<int>();
-            Action<object> action = new Action<object>(PrintStack);
+            LinkedListStack<int> s = new LinkedListStack<int>();
             s.Push(5);
             s.Push(6);
             s.Push(7);
             s.Push(8);
             int sum = 0;
-            s.PrintStack(action);
+            s.PrintStack(new Action<object>(PrintStack));
             while (!s.IsEmpty())
             {
                 int temp = s.Pop();

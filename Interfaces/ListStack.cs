@@ -9,7 +9,7 @@ namespace Stack.Interfaces
 {
     class ListStack<T> : IStack<T>
     {
-        private List<T> _data;
+        private readonly List<T> _data;
 
         public ListStack()
         {
