@@ -15,11 +15,11 @@ namespace Stack.Interfaces
     {
         
         private readonly LinkedList<T> _stack;
+
         public LinkedListStack()
         {
             _stack = new LinkedList<T>();
         }
-
 
         public void Push(T value)
         {
@@ -28,11 +28,9 @@ namespace Stack.Interfaces
 
         public T Pop()
         {
-       
-                T value = _stack.First.Value;
-                _stack.RemoveFirst();
-                return value;
-        
+            T value = _stack.First.Value;
+            _stack.RemoveFirst();
+            return value;
         }
 
         public T Peek()
@@ -53,10 +51,12 @@ namespace Stack.Interfaces
              
             }
         }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
+
         public void PrintStack(Action<object> methodToExecute)
         {   
             foreach (var item in _stack)
@@ -64,7 +64,5 @@ namespace Stack.Interfaces
                 methodToExecute(item);
             }
         }
-
     }
-
 }

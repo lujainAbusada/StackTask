@@ -9,7 +9,6 @@ namespace Stack.Interfaces
 {
     class ListStack<T> : IStack <T>
     {
-
         private  List<T> _data;
         private int _index = 0;
 
