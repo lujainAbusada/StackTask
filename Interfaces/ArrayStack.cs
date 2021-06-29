@@ -11,19 +11,17 @@ namespace Stack.Interfaces
 {
     class ArrayStack<T> : IStack<T>
     {
-
         private T[] _data = new T[1000];
         private int _index = 0;
 
         public ArrayStack()
         {
-
         }
+
         public void Push(T value)
         {
             _data[_index] = value;
             _index++;
-
         }
 
         public T Pop()
@@ -38,7 +36,6 @@ namespace Stack.Interfaces
             {
                 throw new NullReferenceException("Stack is Empty");
             }
-
         }
 
         public T Peek()
@@ -57,15 +54,15 @@ namespace Stack.Interfaces
         {
             return _index == 0;
         }
+
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = _index - 1; i >= 0; i--)
             {
                 yield return _data[i];
             }
-
-
         }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -73,12 +70,11 @@ namespace Stack.Interfaces
 
         public void PrintStack(Action<object> methodToExecute)
         {
-            int temp = _index-1;
-            while(temp>=0)
+            int temp = _index - 1;
+            while (temp >= 0)
             {
                 methodToExecute(_data[temp]);
                 temp--;
-                
             }
         }
     }

@@ -7,10 +7,9 @@ using Stack.Logic;
 
 namespace Stack.Interfaces
 {
-    class ListStack<T> : IStack <T>
+    class ListStack<T> : IStack<T>
     {
-        private  List<T> _data;
-        private int _index = 0;
+        private List<T> _data;
 
         public ListStack()
         {
@@ -19,17 +18,14 @@ namespace Stack.Interfaces
 
         public void Push(T value)
         {
-            _data.Add(value);
-            _index = _data.Count - 1;
-
+            _data.Insert(0, value);
         }
 
         public T Pop()
         {
             try
             {
-                T last = _data.ElementAt(_index);
-                _index--;
+                T last = _data.ElementAt(0);
                 _data.Remove(last);
                 return last;
             }
@@ -37,14 +33,13 @@ namespace Stack.Interfaces
             {
                 throw new NullReferenceException("Stack is Empty");
             }
-
         }
 
         public T Peek()
         {
             try
             {
-                return _data.ElementAt(_index);
+                return _data.ElementAt(0);
             }
             catch
             {
@@ -56,9 +51,10 @@ namespace Stack.Interfaces
         {
             return _data.Count == 0;
         }
+
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = _index; i >= 0; i--)
+            for (int i = _data.Count - 1; i >= 0; i--)
             {
                 yield return _data.ElementAt(i);
             }
@@ -67,16 +63,13 @@ namespace Stack.Interfaces
         {
             return GetEnumerator();
         }
-     
+
         public void PrintStack(Action<object> methodToExecute)
         {
-
             foreach (var item in _data)
             {
                 methodToExecute(item);
             }
         }
-
     }
-
 }
